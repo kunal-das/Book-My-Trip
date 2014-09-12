@@ -9,14 +9,14 @@ class TicketsController < ApplicationController
 	end
 
 	def create
-		 @ticket = Ticket.new(ticket_params)    
-    	if @ticket.save
-    		thread = Thread.new { sleep 60 }
+		@ticket = Ticket.new(ticket_params)    
+    		if @ticket.save
+    			thread = Thread.new { sleep 60 }
 			session[:thread] = thread.object_id
-     		redirect_to search_path
-    	else
-      		render 'new'
-    	end
+     			redirect_to search_path
+    		else
+      			render 'new'
+    		end
 	end
 
 	def search
@@ -30,6 +30,6 @@ class TicketsController < ApplicationController
 	private
 
 	def ticket_params
-      params.require(:ticket).permit(:from, :to, :date_of_journey, :journey_direction)
-    end
+      		params.require(:ticket).permit(:from, :to, :date_of_journey, :journey_direction)
+    	end
 end
