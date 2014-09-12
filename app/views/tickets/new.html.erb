@@ -1,0 +1,31 @@
+<% provide(:title, 'Tickets Reservation Details') %>
+
+<h1>Tickets Reservation Details</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@ticket) do |tick| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= tick.label :from %>
+      <%= tick.text_field :from %>
+
+      <%= tick.label :to %>
+      <%= tick.text_field :to %>
+
+      <%= tick.label :date_of_journey %>
+      <%= tick.text_field :date_of_journey %>
+
+      <%= tick.radio_button(:journey_direction, "One-Way", :checked => true) %>
+      <%= tick.label(:journey_direction, "One-Way") %>
+	  <%= tick.radio_button(:journey_direction, "Two-Way") %>
+	  <%= tick.label(:journey_direction, "Two-Way") %>
+	  
+
+      <%#= tick.label :password_confirmation, "Confirmation" %>
+      <%#= tick.password_field :password_confirmation %>
+
+      <%= tick.submit "Search", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
